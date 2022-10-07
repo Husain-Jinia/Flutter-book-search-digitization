@@ -59,7 +59,6 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(25.0),
                   ),
                 ),
-
               ),
             ),
           ),
