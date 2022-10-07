@@ -1,3 +1,4 @@
+import 'package:book_search_digitization/widgets/search_text_form.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,6 +11,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   int _index = 0;
+  TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,23 +45,12 @@ class _HomePageState extends State<HomePage> {
           Step(
             title: const Text('Image'),
             content: Container(
-                alignment: Alignment.centerLeft,
-                child: const Text('Image')),
+            ),
           ),
           Step(
             title: const Text('Search query'),
             content: Center(
-              child: TextFormField( 
-                decoration: InputDecoration(
-                  label: const Text("Search query"),
-                  hintText: "Enter the name of the book you want to find.",
-                  fillColor: Colors.grey[200],
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                ),
-              ),
+              child: SearchTextField(searchController: controller,)
             ),
           ),
         ],
