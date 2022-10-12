@@ -53,7 +53,7 @@ class _ImageFieldState extends State<ImageField> {
             child: Row(children: const [
               Icon(Icons.image),
               SizedBox(width: 5,),
-              Text("Open image"),
+              Text("Open camera"),
             ],))
         ],
       )
