@@ -39,6 +39,14 @@ class _ImageFieldState extends State<ImageField> {
     return SingleChildScrollView(
       child: Column(
         children: [
+          const SizedBox(height: 50,),
+          image!=null?
+          Image.file(
+            image!,
+            width: 350,
+            height: 200,
+            fit:BoxFit.contain
+          ): FlutterLogo(size: 160,),
           const SizedBox(height: 15,),
           ElevatedButton(
             onPressed: () => pickImage(),
