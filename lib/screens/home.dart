@@ -1,3 +1,4 @@
+import 'package:book_search_digitization/widgets/image_field.dart';
 import 'package:book_search_digitization/widgets/search_text_form.dart';
 import 'package:flutter/material.dart';
 
@@ -42,10 +43,9 @@ class _HomePageState extends State<HomePage> {
           });
         },
         steps: <Step>[
-          Step(
-            title: const Text('Image'),
-            content: Container(
-            ),
+          const Step(
+            title: Text('Image'),
+            content: ImageField(),
           ),
           Step(
             title: const Text('Search query'),
