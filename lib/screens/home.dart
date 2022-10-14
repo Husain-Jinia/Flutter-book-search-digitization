@@ -1,3 +1,4 @@
+import 'package:book_search_digitization/screens/result.dart';
 import 'package:book_search_digitization/widgets/image_field.dart';
 import 'package:book_search_digitization/widgets/search_text_form.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Home page"),
       ),
       body: Stepper(
-        type:StepperType.horizontal,
+        type:StepperType.vertical,
         currentStep: _index,
         onStepCancel: () {
           if (_index > 0) {
@@ -35,6 +36,13 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               _index += 1;
             });
+          }else{
+            Navigator.push(
+            context,
+                MaterialPageRoute(
+                builder: (BuildContext context) => const ResultPage(),
+              )
+            );
           }
         },
         onStepTapped: (int index) {
@@ -44,11 +52,11 @@ class _HomePageState extends State<HomePage> {
         },
         steps: <Step>[
           const Step(
-            title: Text('Image'),
+            title: Text('Image Selection'),
             content: ImageField(),
           ),
           Step(
-            title: const Text('Search query'),
+            title: const Text('Search Query'),
             content: Center(
               child: SearchTextField(searchController: controller,)
             ),

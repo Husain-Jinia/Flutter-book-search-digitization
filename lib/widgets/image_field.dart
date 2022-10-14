@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:book_search_digitization/models/image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -31,7 +32,6 @@ class _ImageFieldState extends State<ImageField> {
     } on PlatformException catch (e) {
       log("Failed to pick image: $e");
     }
-
   }
 
   @override
@@ -39,20 +39,21 @@ class _ImageFieldState extends State<ImageField> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const SizedBox(height: 50,),
+          const SizedBox(height: 30,),
           image!=null?
           Image.file(
             image!,
             width: 350,
             height: 200,
             fit:BoxFit.contain
-          ): FlutterLogo(size: 160,),
+          ): const FlutterLogo(size: 160,),
           const SizedBox(height: 15,),
           ElevatedButton(
             onPressed: () => pickImage(),
-            child: Row(children: const [
-              Icon(Icons.image),
-              SizedBox(width: 5,),
+            child: Row(
+              children: const [
+              Icon(Icons.camera),
+              SizedBox(width: 10,),
               Text("Open camera"),
             ],))
         ],
