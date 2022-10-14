@@ -12,8 +12,7 @@ class ResultPage extends StatefulWidget {
 
 class _ResultPageState extends State<ResultPage> {
 
-   List<dynamic> suggestedBooks = [];
-
+  List<dynamic> suggestedBooks = [];
 
   @override
   void initState() {
@@ -32,7 +31,9 @@ class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text("Result Page"),
+      ),
       body: Container(
         margin: const EdgeInsets.all(15),
         child: SingleChildScrollView(
@@ -40,11 +41,26 @@ class _ResultPageState extends State<ResultPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: 15,),
                 Container(
                   padding: EdgeInsets.only(left: 5),
-                  child: Text("Suggestions", style: TextStyle(fontSize: 15),)
+                  child: const Text("Results", style: TextStyle(fontSize: 15),)
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height:10),
+                Container(
+                  height: 270,
+                  width: 400,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(10)
+                  ),
+                ),
+                const SizedBox(height:20),
+                Container(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: const Text("Suggestions", style: TextStyle(fontSize: 15),)
+                ),
+                const SizedBox(height: 10,),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: FutureBuilder(
@@ -54,8 +70,8 @@ class _ResultPageState extends State<ResultPage> {
                       if (snapshot.hasData) {
                         return Row(children: List.generate(snapshot.data.length, (index){
                           return Container(
-                            width: 120,
-                            height: 170,
+                            width: 150,
+                            height: 190,
                             margin: EdgeInsets.all(5),
                             padding: EdgeInsets.only(top:3),
                             decoration: BoxDecoration(
@@ -64,7 +80,7 @@ class _ResultPageState extends State<ResultPage> {
                             ),
                             child:Column(
                               children:[
-                                Container(width: 110,height: 120,
+                                Container(width: 140,height: 150,
                                 
                                   decoration: BoxDecoration(
                                     color: Colors.grey[200],
