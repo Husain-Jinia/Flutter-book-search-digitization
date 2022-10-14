@@ -58,7 +58,7 @@ class _ResultPageState extends State<ResultPage> {
                 const SizedBox(height:20),
                 Container(
                   padding: const EdgeInsets.only(left: 5),
-                  child: const Text("Suggestions", style: TextStyle(fontSize: 15),)
+                  child: const Text("Related books", style: TextStyle(fontSize: 15),)
                 ),
                 const SizedBox(height: 10,),
                 SingleChildScrollView(

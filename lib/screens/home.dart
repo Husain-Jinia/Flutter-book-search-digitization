@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Home page"),
       ),
       body: Stepper(
-        type:StepperType.vertical,
+        type:StepperType.horizontal,
         currentStep: _index,
         onStepCancel: () {
           if (_index > 0) {

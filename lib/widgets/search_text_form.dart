@@ -20,6 +20,16 @@ class _SearchTextFieldState extends State<SearchTextField> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const SizedBox(height: 15,),
+        Container(
+          height: 200,
+          width: 400,
+          decoration: BoxDecoration(
+            color: Colors.grey[200],
+            borderRadius: BorderRadius.circular(10)
+          ),
+        ),
+        SizedBox(height: 35,),
         const Text("Enter the name of the book you want to search", style: TextStyle(fontSize: 13),),
         const SizedBox(height: 10,),
         TextFormField( 
