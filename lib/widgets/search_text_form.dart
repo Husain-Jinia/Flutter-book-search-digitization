@@ -13,13 +13,6 @@ class SearchTextField extends StatefulWidget {
 
 class _SearchTextFieldState extends State<SearchTextField> {
 
-  persistSearchQuery()async {
-    SharedPreferencesService preference = SharedPreferencesService();
-    if(widget.searchController.text.isNotEmpty){
-      await preference.saveToSharedPref('search-query', widget.searchController.text);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return 

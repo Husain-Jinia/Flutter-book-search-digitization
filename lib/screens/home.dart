@@ -3,6 +3,8 @@ import 'package:book_search_digitization/widgets/image_field.dart';
 import 'package:book_search_digitization/widgets/search_text_form.dart';
 import 'package:flutter/material.dart';
 
+import '../sharedPreferences.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -14,6 +16,17 @@ class _HomePageState extends State<HomePage> {
 
   int _index = 0;
   TextEditingController controller = TextEditingController();
+
+    persistSearchQuery()async {
+    SharedPreferencesService preference = SharedPreferencesService();
+    if(controller.text.isNotEmpty){
+      print("woooooooooooooooooooooo");
+      await preference.saveToSharedPref('search-query', controller.text);
+      setState(() {
+        controller.text = "";
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +50,7 @@ class _HomePageState extends State<HomePage> {
               _index += 1;
             });
           }else{
+            persistSearchQuery();
             Navigator.push(
             context,
                 MaterialPageRoute(

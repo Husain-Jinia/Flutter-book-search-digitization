@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 bookSuggestionsApi(book)async{
@@ -5,18 +6,13 @@ bookSuggestionsApi(book)async{
     'Accept': '*/*',
     'User-Agent': 'Thunder Client (https://www.thunderclient.com)' 
     };
-    var url = Uri.parse('http://openlibrary.org/search.json?q=$book');
+    var url = Uri.parse('http://openlibrary.org/search.json?q=$book&limit=10');
 
     var req = http.Request('GET', url);
     req.headers.addAll(headersList);
 
     var res = await req.send();
     final resBody = await res.stream.bytesToString();
-
-    if (res.statusCode >= 200 && res.statusCode < 300) {
-      print(resBody);
-    }
-    else {
-      print(res.reasonPhrase);
-  }
+    dynamic response  = jsonDecode(resBody);
+    return response;
 }
