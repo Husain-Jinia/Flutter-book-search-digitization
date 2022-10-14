@@ -20,12 +20,16 @@ class _HomePageState extends State<HomePage> {
     persistSearchQuery()async {
     SharedPreferencesService preference = SharedPreferencesService();
     if(controller.text.isNotEmpty){
-      print("woooooooooooooooooooooo");
       await preference.saveToSharedPref('search-query', controller.text);
-      setState(() {
-        controller.text = "";
-      });
     }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller.text = "";
+
   }
 
   @override
@@ -50,13 +54,15 @@ class _HomePageState extends State<HomePage> {
               _index += 1;
             });
           }else{
-            persistSearchQuery();
-            Navigator.push(
-            context,
-                MaterialPageRoute(
-                builder: (BuildContext context) => const ResultPage(),
-              )
-            );
+            if (controller.text.isNotEmpty) {
+              persistSearchQuery();
+              Navigator.push(
+                context,
+                  MaterialPageRoute(
+                  builder: (BuildContext context) => const ResultPage(),
+                )
+              ); 
+            }
           }
         },
         onStepTapped: (int index) {
