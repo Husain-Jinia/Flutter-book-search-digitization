@@ -24,7 +24,6 @@ class _ResultPageState extends State<ResultPage> {
   getSuggestedBooks() async {
     SharedPreferencesService preference = SharedPreferencesService();
     String? searchQuery = await preference.getFromSharedPref('search-query');
-    print(searchQuery);
     Map books = await bookSuggestionsApi(searchQuery);
     return books["docs"];
   }
@@ -33,9 +32,7 @@ class _ResultPageState extends State<ResultPage> {
     SharedPreferencesService preference = SharedPreferencesService();
     String? searchQuery = await preference.getFromSharedPref('search-query');
     Map books = await bookSuggestionsApi(searchQuery);
-    print(books);
     String book_author = books["docs"][0]["author_name"][0];
-    print("pppppppppppppppppppppppppppp ${book_author}");
     Map authors = await bookSuggestionsApi(book_author);
     return authors["docs"];
   }
