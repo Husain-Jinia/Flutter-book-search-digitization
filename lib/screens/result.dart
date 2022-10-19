@@ -17,7 +17,6 @@ class _ResultPageState extends State<ResultPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -32,8 +31,8 @@ class _ResultPageState extends State<ResultPage> {
     SharedPreferencesService preference = SharedPreferencesService();
     String? searchQuery = await preference.getFromSharedPref('search-query');
     Map books = await bookSuggestionsApi(searchQuery);
-    String book_author = books["docs"][0]["author_name"][0];
-    Map authors = await bookSuggestionsApi(book_author);
+    String bookAuthor = books["docs"][0]["author_name"][0];
+    Map authors = await bookSuggestionsApi(bookAuthor);
     return authors["docs"];
   }
 
@@ -50,9 +49,9 @@ class _ResultPageState extends State<ResultPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
                 Container(
-                  padding: EdgeInsets.only(left: 5),
+                  padding: const EdgeInsets.only(left: 5),
                   child: const Text("Results", style: TextStyle(fontSize: 15),)
                 ),
                 const SizedBox(height:10),
@@ -81,8 +80,8 @@ class _ResultPageState extends State<ResultPage> {
                           return Container(
                             width: 150,
                             height: 190,
-                            margin: EdgeInsets.all(5),
-                            padding: EdgeInsets.only(top:3),
+                            margin: const EdgeInsets.all(5),
+                            padding: const EdgeInsets.only(top:3),
                             decoration: BoxDecoration(
                               color: Colors.grey[400],
                               borderRadius: BorderRadius.circular(5)
@@ -96,9 +95,9 @@ class _ResultPageState extends State<ResultPage> {
                                     borderRadius: BorderRadius.circular(5)
                                   
                                 ),
-                                child: Center(child: Icon(Icons.book, size: 50,color: Colors.black54,)),
+                                child: const Center(child: Icon(Icons.book, size: 50,color: Colors.black54,)),
                                 ),
-                                SizedBox(height: 5,),
+                                const SizedBox(height: 5,),
                                 Container(
                                   padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
                                   child: Text(snapshot.data[index]["title"], style: const TextStyle(fontSize: 11),textAlign: TextAlign.center,overflow: TextOverflow.ellipsis,))
@@ -132,8 +131,8 @@ class _ResultPageState extends State<ResultPage> {
                           return Container(
                             width: 150,
                             height: 190,
-                            margin: EdgeInsets.all(5),
-                            padding: EdgeInsets.only(top:3),
+                            margin: const EdgeInsets.all(5),
+                            padding: const EdgeInsets.only(top:3),
                             decoration: BoxDecoration(
                               color: Colors.grey[400],
                               borderRadius: BorderRadius.circular(5)
@@ -147,9 +146,9 @@ class _ResultPageState extends State<ResultPage> {
                                     borderRadius: BorderRadius.circular(5)
                                   
                                 ),
-                                child: Center(child: Icon(Icons.book, size: 50,color: Colors.black54,)),
+                                child: const Center(child: Icon(Icons.book, size: 50,color: Colors.black54,)),
                                 ),
-                                SizedBox(height: 5,),
+                                const SizedBox(height: 5,),
                                 Container(
                                   padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
                                   child: Text(snapshot.data[index]["title"], style: const TextStyle(fontSize: 11),textAlign: TextAlign.center,overflow: TextOverflow.ellipsis,))

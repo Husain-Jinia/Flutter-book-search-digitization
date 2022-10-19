@@ -71,9 +71,9 @@ class _HomePageState extends State<HomePage> {
         },
         steps: <Step>[
           Step(
-            title: Text('Image Selection'),
+            title: const Text('Image Selection'),
             isActive: _index>=0,
-            content: ImageField(),
+            content: const ImageField(),
           ),
           Step(
             title: const Text('Search Query'),

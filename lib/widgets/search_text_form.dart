@@ -1,4 +1,3 @@
-import 'package:book_search_digitization/sharedPreferences.dart';
 import 'package:flutter/material.dart';
 
 class SearchTextField extends StatefulWidget {
@@ -29,7 +28,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
             borderRadius: BorderRadius.circular(10)
           ),
         ),
-        SizedBox(height: 35,),
+        const SizedBox(height: 35,),
         const Text("Enter the name of the book you want to search", style: TextStyle(fontSize: 13),),
         const SizedBox(height: 10,),
         TextFormField( 
