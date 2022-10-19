@@ -29,7 +29,6 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement initState
     super.initState();
     controller.text = "";
-
   }
 
   @override
@@ -71,12 +70,14 @@ class _HomePageState extends State<HomePage> {
           });
         },
         steps: <Step>[
-          const Step(
+          Step(
             title: Text('Image Selection'),
+            isActive: _index>=0,
             content: ImageField(),
           ),
           Step(
             title: const Text('Search Query'),
+            isActive: _index>=1,
             content: Center(
               child: SearchTextField(searchController: controller,)
             ),

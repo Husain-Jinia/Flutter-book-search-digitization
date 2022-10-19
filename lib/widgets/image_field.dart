@@ -46,10 +46,15 @@ class _ImageFieldState extends State<ImageField> {
             width: 350,
             height: 200,
             fit:BoxFit.contain
-          ): const FlutterLogo(size: 160,),
+          ): const Image(image: AssetImage('assets/bg_image.png'),             
+            width: 250,
+            height: 250,),
           const SizedBox(height: 15,),
           ElevatedButton(
             onPressed: () => pickImage(),
+            style: ElevatedButton.styleFrom(
+              primary: Colors.brown[400]
+            ),
             child: Row(
               children: const [
               Icon(Icons.camera),
