@@ -1,4 +1,6 @@
+import 'package:book_search_digitization/image_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'screens/home.dart';
 
 void main() {
@@ -11,12 +13,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Book search digitization',
-      theme: ThemeData(
-        primarySwatch: Colors.brown,
+    return ChangeNotifierProvider(
+      create: (context) => ImageNotifier(),
+      builder: (context, provider) => MaterialApp(
+        title: 'Book search digitization',
+        theme: ThemeData(
+          primarySwatch: Colors.brown,
+        ),
+        home: const HomePage(),
       ),
-      home: const HomePage(),
     );
   }
 }
